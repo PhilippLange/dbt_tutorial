@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+ - name: world-db-public
+   database: world-db
+   schema: public
+   tables:
+    - name: city
+      columns:
+        - name: name
+          tests:
+            - not_null
+    - name: country
+    - name: country_language
+      # freshness:
+      #   warn_after: {count: 6, period: hour}
+      #   error_after: {count: 12, period: hour}
+      # loaded_at_field: "cast(ttz_aktuell_dat_u_zeit as timestamp)"
